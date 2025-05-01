@@ -16,38 +16,38 @@ class Sandbox extends StatelessWidget {
               style: TextStyle(fontWeight: FontWeight.bold)),
           backgroundColor: Colors.grey,
         ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+        body: Row(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Container(
-              color: Colors.grey[500],
               width: 100,
               padding: const EdgeInsets.all(10),
+              color: Colors.grey[600],
               child: const Text(
-                "Box 1",
+                "Hello World",
                 style:
-                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                    TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
               ),
             ),
             Container(
+              width: 100,
+              padding: const EdgeInsets.all(10),
+              color: Colors.grey[500],
+              child: const Text(
+                "Hello World",
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Container(
+              width: 100,
+              padding: const EdgeInsets.all(10),
               color: Colors.grey[400],
-              width: 150,
-              padding: const EdgeInsets.all(10),
               child: const Text(
-                "Box 2",
+                "Hello World",
                 style:
-                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-              ),
-            ),
-            Container(
-              color: Colors.grey[300],
-              width: 200,
-              padding: const EdgeInsets.all(10),
-              child: const Text(
-                "Box 1",
-                style:
-                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               ),
             )
           ],
