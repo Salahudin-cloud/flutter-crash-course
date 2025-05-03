@@ -5,37 +5,47 @@ class CoffeePrefs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
         Row(
           children: [
-            Text(
+            const Text(
               "Strength: ",
               style:
                   TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
-            Text(
+            const Text(
               "3",
               style: TextStyle(color: Colors.white),
             ),
-            SizedBox(
+            Image.asset('assets/img/coffee_bean.png',
+                width: 25,
+                color: Colors.brown[400],
+                colorBlendMode: BlendMode.multiply),
+            const SizedBox(
               width: 50,
             )
           ],
         ),
         Row(
           children: [
-            Text(
+            const Text(
               "Sugar: ",
               style:
                   TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
-            Text(
+            const Text(
               "4",
               style:
                   TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
-            SizedBox(
+            Image.asset(
+              "assets/img/sugar_cube.png",
+              width: 25,
+              color: Colors.brown[400],
+              colorBlendMode: BlendMode.multiply,
+            ),
+            const SizedBox(
               width: 50,
             )
           ],
