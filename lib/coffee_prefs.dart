@@ -24,7 +24,21 @@ class CoffeePrefs extends StatelessWidget {
                 colorBlendMode: BlendMode.multiply),
             const SizedBox(
               width: 50,
-            )
+            ),
+            const Expanded(child: SizedBox()),
+            ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.brown[800],
+                    foregroundColor: Colors.white),
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text("Inc Strength 1"),
+                      duration: Duration(milliseconds: 500),
+                    ),
+                  );
+                },
+                child: const Text("+")),
           ],
         ),
         Row(
@@ -47,7 +61,21 @@ class CoffeePrefs extends StatelessWidget {
             ),
             const SizedBox(
               width: 50,
-            )
+            ),
+            const Expanded(child: SizedBox()),
+            ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.brown[800],
+                    foregroundColor: Colors.white),
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text("Inc Sugar 1"),
+                      duration: Duration(milliseconds: 500),
+                    ),
+                  );
+                },
+                child: const Text("+")),
           ],
         )
       ],
