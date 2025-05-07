@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 
-class CoffeePrefs extends StatelessWidget {
+class CoffeePrefs extends StatefulWidget {
   const CoffeePrefs({super.key});
+
+  @override
+  State<CoffeePrefs> createState() => _CoffeePrefsState();
+}
+
+class _CoffeePrefsState extends State<CoffeePrefs> {
+  int strenght = 1;
+  int sugars = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +22,8 @@ class CoffeePrefs extends StatelessWidget {
               style:
                   TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
-            const Text(
-              "3",
+            Text(
+              '$strenght',
               style: TextStyle(color: Colors.white),
             ),
             Image.asset('assets/img/coffee_bean.png',
@@ -31,12 +39,32 @@ class CoffeePrefs extends StatelessWidget {
                     backgroundColor: Colors.brown[800],
                     foregroundColor: Colors.white),
                 onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text("Inc Strength 1"),
-                      duration: Duration(milliseconds: 500),
-                    ),
-                  );
+                  setState(() {
+                    if (strenght == 0) {
+                      strenght = 0;
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        content: Text("Can't descrese strenght anymore"),
+                        duration: Duration(milliseconds: 500),
+                      ));
+                    } else {
+                      strenght -= 1;
+                    }
+                  });
+                },
+                child: const Text(
+                  "-",
+                )),
+            const SizedBox(
+              width: 10,
+            ),
+            ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.brown[800],
+                    foregroundColor: Colors.white),
+                onPressed: () {
+                  setState(() {
+                    strenght += 1;
+                  });
                 },
                 child: const Text("+")),
           ],
@@ -48,8 +76,8 @@ class CoffeePrefs extends StatelessWidget {
               style:
                   TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
-            const Text(
-              "4",
+            Text(
+              '$sugars',
               style:
                   TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
@@ -68,12 +96,32 @@ class CoffeePrefs extends StatelessWidget {
                     backgroundColor: Colors.brown[800],
                     foregroundColor: Colors.white),
                 onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text("Inc Sugar 1"),
-                      duration: Duration(milliseconds: 500),
-                    ),
-                  );
+                  setState(() {
+                    if (sugars == 0) {
+                      sugars = 0;
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        content: Text("Can't descrese sugar anymore"),
+                        duration: Duration(milliseconds: 500),
+                      ));
+                    } else {
+                      sugars -= 1;
+                    }
+                  });
+                },
+                child: const Text(
+                  "-",
+                )),
+            const SizedBox(
+              width: 10,
+            ),
+            ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.brown[800],
+                    foregroundColor: Colors.white),
+                onPressed: () {
+                  setState(() {
+                    sugars += 1;
+                  });
                 },
                 child: const Text("+")),
           ],
