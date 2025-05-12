@@ -9,7 +9,7 @@ class CoffeePrefs extends StatefulWidget {
 
 class _CoffeePrefsState extends State<CoffeePrefs> {
   int strenght = 1;
-  int sugars = 1;
+  int sugars = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -22,14 +22,21 @@ class _CoffeePrefsState extends State<CoffeePrefs> {
               style:
                   TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
-            Text(
-              '$strenght',
-              style: const TextStyle(color: Colors.white),
-            ),
-            Image.asset('assets/img/coffee_bean.png',
+            if (strenght == 0)
+              Image.asset(
+                'assets/img/coffee_bean.png',
                 width: 25,
                 color: Colors.brown[400],
-                colorBlendMode: BlendMode.multiply),
+                colorBlendMode: BlendMode.multiply,
+              )
+            else
+              for (int i = 0; i < strenght; i++)
+                Image.asset(
+                  'assets/img/coffee_bean.png',
+                  width: 25,
+                  color: Colors.brown[400],
+                  colorBlendMode: BlendMode.multiply,
+                ),
             const SizedBox(
               width: 50,
             ),
@@ -40,14 +47,13 @@ class _CoffeePrefsState extends State<CoffeePrefs> {
                     foregroundColor: Colors.white),
                 onPressed: () {
                   setState(() {
-                    if (strenght == 0) {
-                      strenght = 0;
+                    if (strenght > 0) {
+                      strenght -= 1;
+                    } else {
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        content: Text("Can't descrese strenght anymore"),
+                        content: Text("Can't descrese coffe anymore"),
                         duration: Duration(milliseconds: 500),
                       ));
-                    } else {
-                      strenght -= 1;
                     }
                   });
                 },
@@ -76,17 +82,17 @@ class _CoffeePrefsState extends State<CoffeePrefs> {
               style:
                   TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
-            Text(
-              '$sugars',
-              style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-            ),
-            Image.asset(
-              "assets/img/sugar_cube.png",
-              width: 25,
-              color: Colors.brown[400],
-              colorBlendMode: BlendMode.multiply,
-            ),
+            if (sugars == 0)
+              const Text("No sugars..",
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.bold)),
+            for (int i = 0; i < sugars; i++)
+              Image.asset(
+                "assets/img/sugar_cube.png",
+                width: 25,
+                color: Colors.brown[400],
+                colorBlendMode: BlendMode.multiply,
+              ),
             const SizedBox(
               width: 50,
             ),
