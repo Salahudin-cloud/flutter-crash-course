@@ -24,7 +24,7 @@ class _CoffeePrefsState extends State<CoffeePrefs> {
             ),
             Text(
               '$strenght',
-              style: TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.white),
             ),
             Image.asset('assets/img/coffee_bean.png',
                 width: 25,
